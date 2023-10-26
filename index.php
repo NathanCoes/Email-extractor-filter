@@ -92,8 +92,10 @@ if ($_FILES){
                 }
             }
         }
-        fwrite($document_csv, $content_emails);
-        fwrite($document_txt, $content_emails); 
+        if ($count_emails < 0){
+            fwrite($document_csv, $content_emails);
+            fwrite($document_txt, $content_emails); 
+        } 
         fclose($document_csv);
         fclose($document_txt);
 
